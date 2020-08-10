@@ -1,18 +1,33 @@
-let num = 266219;
-let numString = num.toString();
-let numArray = numString.split('');
-let result = 1;
-let out = document.querySelector('.span');
-for (let i = 0; i < numArray.length; i++){
-  result *= numArray[i]; 
+let lang = 'ru';
+let days;
+if (lang === 'ru'){
+  days = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+} else if (lang === 'en'){
+  days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 }
 
-console.log(result); //умножение чисел друг на друга
+console.log(days);
 
-result = result ** 3; //возведение в третью степень
+switch (lang) {
+  case 'ru':
+    days = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+    break;
+  case 'en':
+    days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+}
 
-result = result.toString();
-result = result.substring(0,2);
+console.log(days);
 
-out.textContent = result;
+
+days = (lang === 'ru') ? ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] : 
+              ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  
+console.log(days);
+
+
+let namePerson = 'Егор';
+
+(namePerson === 'Артем') ? console.log('директор') : (namePerson === 'Максим') ? console.log('преподаватель') : 
+console.log('студент');
+
 
