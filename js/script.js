@@ -1,38 +1,16 @@
-let lang = 'en';
-let days;
-if (lang === 'ru'){
-  days = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-} else if (lang === 'en'){
-  days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-}
-
-console.log(days);
-
-switch (lang) {
-  case 'ru':
-    days = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-    break;
-  case 'en':
-    days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-}
-
-console.log(days);
-
-
-days = (lang === 'ru') ? ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] : 
-              ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+"use strict";
+const clearMessage = function (data) {
+  if(typeof(data) !== 'string'){
+    alert('Вы указали не строчное значение!');
+    return;
+  }
+  let newStr = data.trim();
   
-console.log(days);
-
-let langArr = {
-  ['ru']: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
-  ['en']: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+  if (newStr.length > 30){
+    newStr = newStr.substring(30, -1);
+  }
+  console.log(newStr + '...');
 };
-console.log(langArr[lang]);
 
-let namePerson = 'Егор';
-
-(namePerson === 'Артем') ? console.log('директор') : (namePerson === 'Максим') ? console.log('преподаватель') : 
-console.log('студент');
-
+clearMessage('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
 
