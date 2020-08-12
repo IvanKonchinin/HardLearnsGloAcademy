@@ -1,16 +1,23 @@
 "use strict";
-const clearMessage = function (data) {
-  if(typeof(data) !== 'string'){
-    alert('Вы указали не строчное значение!');
-    return;
-  }
-  let newStr = data.trim();
-  
-  if (newStr.length > 30){
-    newStr = newStr.substring(30, -1);
-  }
-  console.log(newStr + '...');
-};
+// 1)
+let arr = ['256', '387', '478', '987', '298', '745', '468'];
 
-clearMessage('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
+for (let i = 0; i < arr.length; i++){
+  if(arr[i].substring(0,1) === '2' || arr[i].substring(0,1) === '4'){
+  console.log(arr[i]);
+  }
+}
 
+// 2)
+let n = 100;
+
+nextStep:
+for (let i = 2; i <= n; i++) {
+
+  for (let j = 2; j < i; j++) {
+    if (i % j === 0){
+      continue nextStep;
+    }
+  }
+  console.log(i + ' - Делители этого числа: ' + 1 + ' и ' + i);
+}
