@@ -1,32 +1,29 @@
 "use strict";
-// 1)
-let arr = ['256', '387', '478', '987', '298', '745', '468'];
 
-for (let i = 0; i < arr.length; i++){
-  if(arr[i].substring(0,1) === '2' || arr[i].substring(0,1) === '4'){
-  console.log(arr[i]);
-  }
+function weekDays(){
+
+  let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+  let currentDay = new Date();
+  currentDay = currentDay.getDay() - 1;
+
+  function weekDaysFunc(){
+
+    week.forEach(function (item) {
+
+      if(item === 'Суббота' || item === 'Воскресенье'){
+        document.querySelector('.out').innerHTML += '<i>' + item + '</i>' + "<br>"; 
+      } else if (item === week[currentDay]){
+        document.querySelector('.out').innerHTML += '<b>' + item + '</b>' + "<br>"; 
+      } else {
+        document.querySelector('.out').innerHTML += item + "<br>"; 
+      }
+    });
+
+  }  
+  console.dir(weekDaysFunc);
+  return weekDaysFunc();
 }
 
-// 2)
-
-let n = 100;
-
-for(let i = 2; i <= n; i++){
-  let flag = true;
-  for(let j = 2; j <= i; j++) {
-    if(i % j === 0 && i!== j){
-       flag = false;
-      break;
-    }else{
-       flag = true;
-    }
-    }
-  if (flag === true) {
-    console.log(i + ' - Делители этого числа: ' + 1 + ' и ' + i);
-  }
-}
-   
-
+weekDays();
 
 
