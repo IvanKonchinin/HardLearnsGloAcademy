@@ -20,7 +20,6 @@ function weekDays(){
     });
 
   }  
-  console.dir(weekDaysFunc);
   return weekDaysFunc();
 }
 
