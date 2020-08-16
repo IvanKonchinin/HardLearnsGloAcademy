@@ -25,5 +25,3 @@ function weekDays(){
 }
 
 weekDays();
-
-console.log(new Date().getUTCDay());
