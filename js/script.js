@@ -1,37 +1,46 @@
 "use strict";
+function clock() {
 
-function weekDays(){
+let week = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+let months = ['Декабря', 'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Августа', 'Сентября', 'Октября', 'Ноября'];
+let date = new Date();
+let currentDayOfMonth = date.getDate();
+let currentDay = date.getDay();
+let currentMonth = date.getMonth();
+let currentYear = date.getFullYear();
+let currentHours = date.getHours();
+let currentMinuts = date.getMinutes();
+let currentSeconds = date.getSeconds();
+let format1 = document.querySelector('.format1');
+let format2 = document.querySelector('.format2');
 
-  let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-  let currentDay = (new Date().getDay() === 0) ? 6 : new Date().getUTCDay();
-  let out = document.querySelector('.out');
-  console.log(currentDay);
+const hourses = ['час', 'часа', 'часов'];
+const minutes = ['минута', 'минуты', 'минут'];
+const seconds = ['секунда', 'секунды', 'секунд'];
 
-  function weekDaysFunc(){
-    for (var i = 0; i < week.length; ++i) {
-        if(i === currentDay){
-          if (week[i] === 'Суббота' || week[i] === 'Воскресенье') {
-            out.innerHTML += '<b><i>' + week[i] + '</i></b><br>';
-          }
-          else if (i === currentDay) {
-            out.innerHTML += '<b>' + week[i] + '</b>' + '<br>';
-          }
-          else{
-            out.innerHTML += week[i] + '<br>';
-          }
-        }
-        else if (week[i] === 'Суббота' || week[i] === 'Воскресенье'){
-          out.innerHTML += '<i>' + week[i] + '</i><br>';
-        }
-        else {
-          out.innerHTML += week[i] + '<br>';
-        }
-    }
-  }  
-  return weekDaysFunc();
+const declinationWords = function (num, arrText) {
+  if (num % 10 === 1 && num % 100 !== 11) {
+    return arrText[0];
+  } else if (num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20)) {
+    return arrText[1];
+  }
+  return arrText[2];
+};
+
+const addZero = function(num){
+  if(num < 10){
+    num = '0' + num;
+  }
+  return num;
+};
+
+format1.textContent = `Сегодня ${week[currentDay]}, ${currentDayOfMonth} ${months[currentMonth]} ${currentYear} года, ${addZero(currentHours)} ${declinationWords(currentHours, hourses)} ${addZero(currentMinuts)} ${declinationWords(currentMinuts, minutes)} ${addZero(currentSeconds)} ${declinationWords(currentSeconds, seconds)}`;
+format2.textContent = `${addZero(currentDayOfMonth)}.${(addZero(currentMonth + 1))}.${currentYear} - ${addZero(currentHours)}:${addZero(currentMinuts)}:${addZero(currentSeconds)}`;
 }
 
-weekDays();
-// let currentDay = new Date();
-// console.log(currentDay.toLocaleString('ru-RU', { hour12: false }));
-// console.dir(currentDay.getDay());
+setInterval(clock, 1000);
+
+
+
+
+
